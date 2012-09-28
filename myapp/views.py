@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from myapp.forms import MyModelForm
 from myapp.models import MyModel
 
-def main(request):
+def form_request(request, url, template):
     if request.method == 'POST':
         form = MyModelForm(request.POST)
         if form.is_valid():
@@ -11,16 +11,18 @@ def main(request):
             request.session['name'] = name
             mm = MyModel.objects.create(name=name)
             mm.save()
-            return HttpResponseRedirect('/add') # Redirect after POST
+            return HttpResponseRedirect(url) # Redirect after POST
     else:
         form = MyModelForm()
-        args = {}
-        args['form'] = form
-    return render(request, 'main.html', args)
+    args = {}
+    args['form'] = form
+    return render(request, template, args)
+
+def main(request):
+    return form_request(request, '/add', 'main.html')
 
 def form_add(request):
     args = {}
     name = request.session['name']
-    args['name'] = name
 
     return render(request, 'add.html', args)
