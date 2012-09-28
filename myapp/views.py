@@ -21,6 +21,12 @@ def form_request(request, url, template):
 def main(request):
     return form_request(request, '/add', 'main.html')
 
+def form_1(request):
+    return form_request(request, '/add', 'form_1.html')
+
+def form_2(request):
+    return form_request(request, '/add', 'form_2.html')
+
 def form_add(request):
     args = {}
     name = request.session['name']
