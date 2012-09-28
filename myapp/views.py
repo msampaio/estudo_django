@@ -15,6 +15,7 @@ def form_request(request, url, template):
     else:
         form = MyModelForm()
     args = {}
+    args['mms'] = MyModel.objects.all()
     args['form'] = form
     return render(request, template, args)
 

@@ -12,4 +12,11 @@
   <button>Submit</button>
 </form>
 
+<p>Lista ({{ mms.count }} itens)</p>
+
+<ul>
+{% for item in mms %}
+<li>{{ item.name }}</li>
+{% endfor %}
+</ul>
 {% endblock %}
