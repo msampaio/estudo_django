@@ -24,15 +24,11 @@
   </div>
 </div>
 
-<p>Lista ({{ mms.count }} itens)</p>
-
-<ul>
-{% for item in mms %}
-<li>{{ item.name }}</li>
-{% endfor %}
-</ul>
+<p>Último item: {{ last_item }}</p>
 
 {% endblock %}
 
 {% block scripts %}
+<script>
+</script>
 {% endblock %}

@@ -15,7 +15,7 @@ def form_request(request, url, template):
     else:
         form = MyModelForm()
     args = {}
-    args['mms'] = MyModel.objects.all()
+    args['last_item'] = MyModel.objects.all().order_by('pk').reverse()[0]
     args['form'] = form
     return render(request, template, args)
 
@@ -23,7 +23,7 @@ def main(request):
     return form_request(request, '/add', 'main.html')
 
 def form_1(request):
-    return form_request(request, '/add', 'form_1.html')
+    return form_request(request, '/1', 'form_1.html')
 
 def form_2(request):
     return form_request(request, '/add', 'form_2.html')
