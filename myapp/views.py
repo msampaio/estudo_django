@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from myapp.forms import MyModelForm
 from myapp.models import MyModel
 
@@ -33,5 +33,6 @@ def form_2(request):
 def form_add(request):
     args = {}
     name = request.session['name']
+    args['name'] = name
 
     return render(request, 'add.html', args)
