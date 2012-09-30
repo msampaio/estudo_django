@@ -15,7 +15,9 @@ def form_request(request, url, template):
     else:
         form = MyModelForm()
     args = {}
-    args['last_item'] = MyModel.objects.all().order_by('pk').reverse()[0]
+    objs = MyModel.objects.all()
+    if objs:
+        args['last_item'] = MyModel.objects.all().order_by('pk').reverse()[0]
     args['form'] = form
     return render(request, template, args)
 
