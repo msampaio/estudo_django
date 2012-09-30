@@ -4,7 +4,7 @@
 
 <p>Formulário sem ajax</p>
 
-<form method="POST" id="" action="">
+<form method="POST" id="" action="" autocomplete="off">
   {% csrf_token %}
   {{ form.as_p }}
   <button>Submit</button>

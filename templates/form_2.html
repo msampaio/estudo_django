@@ -6,7 +6,8 @@
 
 <p>O formulário fica na página, a validação vai no dialog</p>
 
-<form method="POST" id="" action="" onsubmit="$('#myModal2').modal('show')">
+<form method="POST" id="" action=""
+      onsubmit="$('#myModal2').modal('show')" autocomplete="off">
   {% csrf_token %}
   {{ form.as_p }}
   <button id="form_button">Submit</button>
